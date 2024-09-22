@@ -1,9 +1,10 @@
 {
   "name": "server",
   "version": "1.0.0",
+  "type": "module",
   "main": "src/server.js",
   "scripts": {
-    "start": "nodemon --exec babel-node src/server.js"
+    "start": "node src/server.js"
   },
   "keywords": [],
   "author": "",
