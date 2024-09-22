@@ -1,0 +1,115 @@
+POST http://localhost:5000/api/v1/register
+Content-Type: application/json
+
+{
+    "phone":"0336099317",
+    "name":"Nguyễn Trung Kiên",
+    "password":"1234567890"
+}
+
+###
+POST http://localhost:5000/api/v1/login
+Content-Type: application/json
+
+{
+    "phone":"0336099317",
+    "password":"1234567890"
+}
+
+###
+POST http://localhost:5000/api/v1/signupforatriallesson
+Content-Type: application/json
+
+{
+    "name":"Nguyễn Văn Toàn",
+    "phone":"0336099310",
+    "age":"14 tuổi"
+}
+
+###
+POST http://localhost:5000/api/v1/signuprecruitment
+Content-Type: application/json
+
+{
+    "name":"Nguyễn Trung Kiên",
+    "phone":"0336099317",
+    "position":"Nhân viên"
+}
+
+###
+GET http://localhost:5000/api/v1/getAllSignUpForATrialLesson
+###
+GET http://localhost:5000/api/v1/getAllFalseSignUpForATrialLesson   
+###
+GET http://localhost:5000/api/v1/getAllTrueSignUpForATrialLesson
+###
+GET http://localhost:5000/api/v1/getAllSignUpRecruitment
+### 
+GET http://localhost:5000/api/v1/getAllFalseSignUpRecruitment
+###
+GET http://localhost:5000/api/v1/getAllTrueSignUpRecruitment
+
+###
+PUT http://localhost:5000/api/v1/updateSignUpFreeLesson
+Content-Type: application/json
+
+{
+  "id": 1
+}
+
+###
+GET http://localhost:5000/api/v1/getCountisFree
+
+###
+GET http://localhost:5000/api/v1/getCountisRecruitment
+
+
+###
+DELETE http://localhost:5000/api/v1/deleteRecruitment
+Content-Type: application/json
+
+{
+    "id":2
+}
+
+###
+DELETE http://localhost:5000/api/v1/deleteFreeLesson
+Content-Type: application/json
+
+{
+    "id":10
+}
+
+###
+GET http://localhost:5000/api/v1/getCurrentUser
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImI2NTIwZWI4LTU3MGQtNDNhZC1hNDU5LTBlNGQxNmFmMGMyYiIsIm5hbWUiOiJuZ3V5ZW4gdHJ1bmcga2llbiIsImlhdCI6MTcyMzQ3ODA3NywiZXhwIjoxNzIzNjUwODc3fQ.O-JAOwsKEOEfVviaq5dTiicOG6Z4HeZPNZtu831PEic
+
+###
+POST http://localhost:5000/api/v1/createNews
+Content-Type: application/json
+
+{
+    "title":"NHẬN NGAY HỌC BỔNG LÊN ĐẾN 40% - CON TỰ TIN DẪN ĐẦU “ĐƯỜNG ĐUA” ANH NGỮ", 
+    "description":"Sau thời gian dài học tập trực tuyến phần nào khiến kiến thức bị gián đoạn, thời điểm quay lại trường chính là khởi điểm quan trọng để các em học sinh vào guồng học tập, đồng thời bứt tốc về đích trên hành trình Anh ngữ, sẵn sàng chuẩn bị cho những kỳ thi sắp tới.", 
+    "image":["https://res.cloudinary.com/dp6cr7ea5/image/upload/v1723506309/windsorcenter/kcx2b9qjlu929fauvpwa.png",
+    "https://res.cloudinary.com/dp6cr7ea5/image/upload/v1723506311/windsorcenter/j0xrbjt5hwtjzsm8uoq4.jpg"], 
+    "codeYTB":"", 
+    "links":""
+}
+
+###
+GET http://localhost:5000/api/v1/getAllNews
+
+###
+POST http://localhost:5000/api/v1/createAttractive
+Content-Type: application/json
+
+{
+    "image":["https://res.cloudinary.com/dp6cr7ea5/image/upload/v1723506309/windsorcenter/kcx2b9qjlu929fauvpwa.png","https://res.cloudinary.com/dp6cr7ea5/image/upload/v1723506311/windsorcenter/j0xrbjt5hwtjzsm8uoq4.jpg"]
+}
+
+###
+GET http://localhost:5000/api/v1/getAllAttractive
+
+###
+GET http://localhost:5000/api/v1/getOneNew/1b3ecc1f-ad79-41e8-8710-0ed090866f1f
