@@ -1,8 +1,12 @@
-import * as services from "../services"
-import { interalServerError } from "../middlewares/handle_errors"
+const services = require("../services/user");
+const { interalServerError } = require("../middlewares/handle_errors");
 
+
+class User{
+
+    
 // POST signupforatriallesson
-export const signupforatriallesson = async (req, res, next) => {
+ signupforatriallesson = async (req, res, next) => {
     try {
         const { name, phone, age } = req.body
         if (!name || !phone || !age) {
@@ -18,7 +22,7 @@ export const signupforatriallesson = async (req, res, next) => {
     }
 }
 // POST signupRecruitment
-export const signupRecruitment = async (req, res, next) => {
+ signupRecruitment = async (req, res, next) => {
     try {
         const { name, phone, position } = req.body
         if (!name || !phone || !position) {
@@ -35,7 +39,7 @@ export const signupRecruitment = async (req, res, next) => {
 }
 
 // Get getAllSignUpForaTriallesson
-export const getAllSignUpForaTriallesson = async (req, res, next) => {
+ getAllSignUpForaTriallesson = async (req, res, next) => {
     try {
         const response = await services.getAllSignUpLessonTrialService();
         return res.status(200).json(response)
@@ -44,7 +48,7 @@ export const getAllSignUpForaTriallesson = async (req, res, next) => {
     }
 }
 // Get getAllsignupRecruitment
-export const getAllSignUpRecruitment = async (req, res, next) => {
+ getAllSignUpRecruitment = async (req, res, next) => {
     try {
         const response = await services.getAllSignUpRecruitmentService();
         return res.status(200).json(response)
@@ -54,7 +58,7 @@ export const getAllSignUpRecruitment = async (req, res, next) => {
 }
 
 // GET False getAllSignUpForaTriallesson
-export const getAllFalseSignUpForaTriallesson = async (req, res, next) => {
+ getAllFalseSignUpForaTriallesson = async (req, res, next) => {
     try {
         const response = await services.getAllFalseSignUpLessonTrialService();
         return res.status(200).json(response)
@@ -64,7 +68,7 @@ export const getAllFalseSignUpForaTriallesson = async (req, res, next) => {
 }
 
 // GET TRUE getAllSignUpForaTriallesson
-export const getAllTrueSignUpForaTriallesson = async (req, res, next) => {
+ getAllTrueSignUpForaTriallesson = async (req, res, next) => {
     try {
         const response = await services.getAllTrueSignUpLessonTrialService();
         return res.status(200).json(response)
@@ -74,7 +78,7 @@ export const getAllTrueSignUpForaTriallesson = async (req, res, next) => {
 }
 
 // GET False getAllSignUpRecruitment
-export const getAllFalseSignUpRecruitment = async (req, res, next) => {
+ getAllFalseSignUpRecruitment = async (req, res, next) => {
     try {
         const response = await services.getAllFalseSignUpRecruitmentService();
         return res.status(200).json(response)
@@ -84,7 +88,7 @@ export const getAllFalseSignUpRecruitment = async (req, res, next) => {
 }
 
 // GET TRUE getAllSignUpForaTriallesson
-export const getAllTrueSignUpRecruitment = async (req, res, next) => {
+ getAllTrueSignUpRecruitment = async (req, res, next) => {
     try {
         const response = await services.getAllTrueSignUpRecruitmentService();
         return res.status(200).json(response)
@@ -93,7 +97,7 @@ export const getAllTrueSignUpRecruitment = async (req, res, next) => {
     }
 }
 // Upadate
-export const updateOneFreeTrialLesson = async (req, res, next) => {
+ updateOneFreeTrialLesson = async (req, res, next) => {
     try {
         const { id } = req.body
         if (!id) {
@@ -110,7 +114,7 @@ export const updateOneFreeTrialLesson = async (req, res, next) => {
 }
 
 // Get Count
-export const getCountIsFree = async(req,res,next) => {
+ getCountIsFree = async(req,res,next) => {
   try {
     const response = await services.getCountAllIsFee();
     return res.status(200).json(response)
@@ -118,7 +122,7 @@ export const getCountIsFree = async(req,res,next) => {
     return interalServerError(res)
   }
 }
-export const getCountIsRecruitment = async(req,res,next) => {
+ getCountIsRecruitment = async(req,res,next) => {
   try {
     const response = await services.getCountAllIsRecruitment();
     return res.status(200).json(response)
@@ -128,7 +132,7 @@ export const getCountIsRecruitment = async(req,res,next) => {
 }
 
 // Delete
-export const deleteIsRecruitment = async(req,res,next) => {
+ deleteIsRecruitment = async(req,res,next) => {
    try {
      const {id} = req.body;
      if(!id){
@@ -143,7 +147,7 @@ export const deleteIsRecruitment = async(req,res,next) => {
     return interalServerError(res)
    }
 }
-export const deleteIsFreeLesson = async(req,res,next) => {
+ deleteIsFreeLesson = async(req,res,next) => {
    try {
      const {id} = req.body;
      if(!id){
@@ -159,7 +163,7 @@ export const deleteIsFreeLesson = async(req,res,next) => {
    }
 }
 
-export const deleteIsRecruitmentAll = async(req,res,next) => {
+ deleteIsRecruitmentAll = async(req,res,next) => {
     try {
       const response = await services.deleteRecruitmentAll()
       return res.status(200).json(response)    
@@ -168,7 +172,7 @@ export const deleteIsRecruitmentAll = async(req,res,next) => {
     }
  }
 
-export const getCurrentUser = async(req,res) => {
+ getCurrentUser = async(req,res) => {
     try {
       const {id} = req.user;
       const response = await services.getCurrentUserService(id);
@@ -178,16 +182,9 @@ export const getCurrentUser = async(req,res) => {
     }
 }
 
-export const getAllNews = async(req,res,next) => {
-    try {
-        const response = await services.getAllNewsServices();
-        return res.status(200).json(response)
-    } catch (error) {
-        return interalServerError(res);
-    }
-}
 
-export const getAllAttractive = async(req,res,next) => {
+
+ getAllAttractive = async(req,res,next) => {
     try {
         const response = await services.getAllAttractiveService();
         return res.status(200).json(response)
@@ -195,3 +192,7 @@ export const getAllAttractive = async(req,res,next) => {
         return interalServerError(res)
     }
 }
+
+}
+
+module.exports = new User();

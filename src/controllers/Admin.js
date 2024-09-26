@@ -1,8 +1,11 @@
-import * as services from "../services"
-import { interalServerError } from "../middlewares/handle_errors"
+const  services = require("../services/admin");
+const { interalServerError } = require("../middlewares/handle_errors");
 
 // create News
-export const createNews = async (req,res,next) => {
+
+class Admin {
+  
+   createNews = async (req,res,next) => {
     try {
         const {image,title,description} = req.body;
         if(!image || !title || !description){
@@ -18,7 +21,7 @@ export const createNews = async (req,res,next) => {
     }
 }
 
-export const createAttractive = async(req,res,next) => {
+ createAttractive = async(req,res,next) => {
     try {
         const {image} = req.body;
         if(!image){
@@ -33,3 +36,17 @@ export const createAttractive = async(req,res,next) => {
         return interalServerError(res)
     }
 }
+
+getAllNews = async(req,res,next) => {
+    try {
+        const response = await services.getAllNewsServices();
+        return res.status(200).json(response)
+    } catch (error) {
+        return interalServerError(res);
+    }
+}
+
+}
+
+module.exports = new Admin();
+

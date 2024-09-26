@@ -1,6 +1,6 @@
-import express from "express"
+const express = require("express");
 const route = express.Router();
-import * as controllers from "../controllers"
+const controllers = require("../controllers/Auth");
 
 
 

@@ -1,8 +1,8 @@
-import express from "express";
+const express = require("express");
 const route = express.Router();
-import * as controllers from "../controllers"
-import { verifyToken } from "../middlewares/verify_token";
-import { isAdmin } from "../middlewares/verify_roles";
+const controllers = require("../controllers/User");
+const { verifyToken } = require("../middlewares/verify_token");
+const { isAdmin } = require("../middlewares/verify_roles");
 
 // Route post
 route.post('/signupforatriallesson',controllers.signupforatriallesson)

@@ -1,6 +1,9 @@
-import createHttpError from "http-errors";
+const createHttpError = require("http-errors");
 
-export const badRequest = (err, res) => {
+class HanddleError
+{
+  
+ badRequest = (err, res) => {
     const error = createHttpError.BadRequest(err);
     return res.status(error.status).json({
         err: 0,
@@ -8,10 +11,13 @@ export const badRequest = (err, res) => {
     })
 }
 
-export const interalServerError = (res) => {
+ interalServerError = (res) => {
     const error = createHttpError.InternalServerError();
     return res.status(error.status).json({
         err: 0,
         msg: error.message
     })
 }
+}
+
+module.exports = new HanddleError();

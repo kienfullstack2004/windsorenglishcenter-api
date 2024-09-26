@@ -1,3 +1,7 @@
-import joi from "joi"
+const joi = require("joi");
 
-export const phone = joi.string().alphanum().required()
+class Validate{
+    phone = joi.string().alphanum().required()
+}
+
+module.exports = new Validate();

@@ -1,7 +1,7 @@
-import auth from "./auth"
-import user from "./user"
-import admin from "./admin"
-import news from "./news"
+const auth = require("./auth");
+const user = require("./user");
+const admin= require( "./admin");
+const news = require("./news");
 
 const route = (app) => {
     app.use('/api/v1', auth)

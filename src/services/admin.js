@@ -1,8 +1,11 @@
-import db from "../models"
-import { v4 } from "uuid"
+const db =  require("../models");
+const { v4 } =  require("uuid");
 
 // create News
-export const createNewsService = ({ title, description, image, codeYTB, links }) => new Promise(async (resolve, reject) => {
+
+class Admin {
+  
+createNewsService = ({ title, description, image, codeYTB, links }) => new Promise(async (resolve, reject) => {
     try {
         let codeImage = v4();
         let arrayImage = JSON.stringify(image);
@@ -34,7 +37,7 @@ export const createNewsService = ({ title, description, image, codeYTB, links })
     }
 })
 
-export const getAllNewsServices = () => new Promise(async(resolve,reject)=>{
+getAllNewsServices = () => new Promise(async(resolve,reject)=>{
     try {
         const response = await db.News.findAll({
             attributes:["title","description","createdAt","links","codeYTB","id"],
@@ -52,7 +55,7 @@ export const getAllNewsServices = () => new Promise(async(resolve,reject)=>{
     }
 })
 
-export const createAttractiveService = ({image}) => new Promise(async(resolve,reject)=>{
+ createAttractiveService = ({image}) => new Promise(async(resolve,reject)=>{
     try {
  
         let arrayImage = JSON.stringify(image)
@@ -69,3 +72,6 @@ export const createAttractiveService = ({image}) => new Promise(async(resolve,re
         reject(error)
     }
 })
+}
+
+module.exports = new Admin();

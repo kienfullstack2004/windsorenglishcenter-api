@@ -1,6 +1,7 @@
-import db from "../models"
+const db = require("../models");
 
-export const getOneNewServices = (id) => new Promise(async (resolve, reject) => {
+class NewsService {
+  getOneNewServices = (id) => new Promise(async (resolve, reject) => {
     try {
         const response = await db.News.findOne({
             where: {id},
@@ -21,3 +22,6 @@ export const getOneNewServices = (id) => new Promise(async (resolve, reject) => 
         return reject(error)
     }
 })
+}
+
+module.exports = new NewsService();

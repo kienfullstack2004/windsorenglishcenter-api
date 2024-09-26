@@ -1,9 +1,9 @@
-import express from "express"
+const express = require("express");
 
 const route = express.Router();
 
-import * as controlles from "../controllers"
+const controlles = require("../controllers/News");
 
 route.get('/getOneNew/:id',controlles.getOneNew)
 
-export default route;
+module.exports = route;
